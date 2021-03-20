@@ -59,7 +59,8 @@ public class SecondActivity extends AppCompatActivity {
 
             //create a new textview
             TextView textView = new TextView(this);
-            textView.setId(i);
+            String id = String.valueOf(r+1) + String.valueOf(c+1);
+            textView.setId(Integer.parseInt(id));
             textView.setGravity(Gravity.CENTER);
             textView.setText(String.valueOf(textView.getId()));
 
@@ -82,17 +83,20 @@ public class SecondActivity extends AppCompatActivity {
             }
 
             //setting the width and height for this textview
-            textView.setWidth((int)width/column
-                    - relativeLayout.getPaddingLeft() - relativeLayout.getPaddingRight()
-                    - relativeLayout2.getPaddingLeft() - relativeLayout2.getPaddingRight());
-            textView.setHeight((int)width/column
-                    - relativeLayout.getPaddingTop() - relativeLayout.getPaddingBottom()
-                    - relativeLayout2.getPaddingTop() - relativeLayout2.getPaddingBottom());
+            textView.setWidth(
+                    (int)width/column
+                    - relativeLayout.getPaddingLeft()
+                    - relativeLayout2.getPaddingLeft()
+            );
+            textView.setHeight(
+                    (int)width/column
+                    - relativeLayout.getPaddingTop()
+                    - relativeLayout2.getPaddingTop()
+            );
 
             //setting the row and column number for this textview
             GridLayout.Spec rowSpan = GridLayout.spec(r, 1);
             GridLayout.Spec colspan = GridLayout.spec(c, 1);
-
             GridLayout.LayoutParams gridParam = new GridLayout.LayoutParams(
                     rowSpan, colspan);
 
@@ -109,6 +113,9 @@ public class SecondActivity extends AppCompatActivity {
         * int id = ID_TO_BE_ACCESSED
         * textview.findViewById(id)
         * */
+
+        NQueenProblem Queen = new NQueenProblem(Integer.parseInt(n), this);
+        Queen.solveNQ();
 
     }
 }
