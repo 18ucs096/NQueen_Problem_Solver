@@ -62,7 +62,7 @@ public class SecondActivity extends AppCompatActivity {
             String id = String.valueOf(r+1) + String.valueOf(c+1);
             textView.setId(Integer.parseInt(id));
             textView.setGravity(Gravity.CENTER);
-            textView.setText(String.valueOf(textView.getId()));
+            //textView.setText(String.valueOf(textView.getId()));
 
             //setting the background color in the pattern of chess board
             if (c==r) {
@@ -114,6 +114,7 @@ public class SecondActivity extends AppCompatActivity {
         * textview.findViewById(id)
         * */
 
+        //the green colored squares show the valid positions of N queens
         NQueenProblem Queen = new NQueenProblem(Integer.parseInt(n), this);
         Queen.solveNQ();
 
