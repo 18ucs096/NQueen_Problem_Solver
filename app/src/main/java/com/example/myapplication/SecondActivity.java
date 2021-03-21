@@ -5,18 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity {
 
     GridLayout gridLayout;
     RelativeLayout relativeLayout,relativeLayout2;
     TextView nview;
+    Button nbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,7 @@ public class SecondActivity extends AppCompatActivity {
         relativeLayout = findViewById(R.id.relativelayout);
         relativeLayout2 = findViewById(R.id.relativelayout2);
         nview = findViewById(R.id.textn);
+        nbtn = findViewById(R.id.btnnqueen);
 
         gridLayout = (GridLayout) findViewById(R.id.gridview);
         gridLayout.removeAllViews();
@@ -114,9 +120,35 @@ public class SecondActivity extends AppCompatActivity {
         * textview.findViewById(id)
         * */
 
-        //the green colored squares show the valid positions of N queens
-        NQueenProblem Queen = new NQueenProblem(Integer.parseInt(n), this);
-        Queen.solveNQ();
+        nbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(SecondActivity.this, "The possible arrangement for "+ n+" queens will be shown by green colored boxes.", Toast.LENGTH_SHORT).show();
+                if (column!=0 && row!=0){
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                                //the green colored squares show the valid positions of N queens
+                                NQueenProblem Queen = new NQueenProblem(Integer.parseInt(n), SecondActivity.this);
+                                Queen.solveNQ();
+                        }
+                    },2000);
+                }
+            }
+        });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        goBacktoMainActivity();
+    }
+
+    private void goBacktoMainActivity() {
+        Intent main = new Intent(SecondActivity.this,MainActivity.class);
+        startActivity(main);
+        finish();
     }
 }

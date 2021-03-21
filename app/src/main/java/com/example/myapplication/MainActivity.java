@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     EditText n;
     Button b;
     String val=null;
+    private long pressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +44,18 @@ public class MainActivity extends AppCompatActivity {
         Intent x = new Intent(this, SecondActivity.class);
         x.putExtra("n",val);
         startActivity(x);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            finish();
+        }
+        else {
+            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        pressedTime = System.currentTimeMillis();
     }
 }
