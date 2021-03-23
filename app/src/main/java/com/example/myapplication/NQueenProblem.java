@@ -22,7 +22,7 @@ public class NQueenProblem {
                 if (board[i][j]!=0){
                     int id = Integer.parseInt(String.valueOf(i+1)+String.valueOf(j+1));
                     t = ((Activity)context).findViewById(id);
-                    t.setBackgroundColor(Color.parseColor("#008000"));
+                    t.setBackgroundColor(Color.parseColor("#FFFF00"));
                     //the suitable place for queen is shown by green color
                 }
             }

@@ -21,7 +21,7 @@ public class SecondActivity extends AppCompatActivity {
     GridLayout gridLayout;
     RelativeLayout relativeLayout,relativeLayout2;
     TextView nview;
-    Button nbtn;
+    Button nbtn,exitbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,14 @@ public class SecondActivity extends AppCompatActivity {
         relativeLayout2 = findViewById(R.id.relativelayout2);
         nview = findViewById(R.id.textn);
         nbtn = findViewById(R.id.btnnqueen);
+        exitbtn = findViewById(R.id.btnnterminate);
+
+        exitbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         gridLayout = (GridLayout) findViewById(R.id.gridview);
         gridLayout.removeAllViews();
