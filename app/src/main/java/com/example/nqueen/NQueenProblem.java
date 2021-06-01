@@ -3,6 +3,7 @@ package com.example.nqueen;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -125,6 +126,7 @@ public class NQueenProblem {
        feasible solutions.*/
     long startTime;
     long endTime;
+
     boolean solveNQ()
     {
         startTime = System.nanoTime();

@@ -12,8 +12,10 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nqueen.R;
 
@@ -132,15 +134,15 @@ public class SecondActivity extends AppCompatActivity {
         nbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(SecondActivity.this, "The possible arrangement for "+ n+" queens will be shown by green colored boxes.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SecondActivity.this, "Request queued...", Toast.LENGTH_SHORT).show();
                 if (column!=0 && row!=0){
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                                //the green colored squares show the valid positions of N queens
-                                NQueenProblem Queen = new NQueenProblem(Integer.parseInt(n), SecondActivity.this);
-                                Queen.solveNQ();
+                            //the green colored squares show the valid positions of N queens
+                            NQueenProblem Queen = new NQueenProblem(Integer.parseInt(n), SecondActivity.this);
+                            Queen.solveNQ();
                         }
                     },0);
                 }
