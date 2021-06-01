@@ -1,9 +1,10 @@
-package com.example.myapplication;
+package com.example.nqueen;
 
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class NQueenProblem {
     int N;
@@ -22,11 +23,34 @@ public class NQueenProblem {
                 if (board[i][j]!=0){
                     int id = Integer.parseInt(String.valueOf(i+1)+String.valueOf(j+1));
                     t = ((Activity)context).findViewById(id);
-                    t.setBackgroundColor(Color.parseColor("#FFFF00"));
-                    //the suitable place for queen is shown by green color
+
+//                    ColorDrawable cd = (ColorDrawable) t.getBackground();
+//                    int colorCode = cd.getColor();
+//
+//                    if(colorCode==Color.WHITE){
+//                        t.setCompoundDrawablesWithIntrinsicBounds(
+//                                ContextCompat.getDrawable(context, R.drawable.blackqueen),
+//                                null,
+//                                null,
+//                                null);
+//                    }
+//                    else{
+//                        t.setCompoundDrawablesWithIntrinsicBounds(
+//                                ContextCompat.getDrawable(context, R.drawable.whitequeen),
+//                                null,
+//                                null,
+//                                null);
+//                    }
+
+                    t.setBackgroundColor(Color.parseColor("#FF00FF"));
+
+
+                    //the suitable place for queen is shown by yellow color
                 }
             }
         }
+        endTime = System.nanoTime();
+        Toast.makeText(context, "Time taken = "+(endTime - startTime)/1000000 +"ms", Toast.LENGTH_LONG).show();
     }
 
     /* A utility function to check if a queen can
@@ -99,8 +123,11 @@ public class NQueenProblem {
        Please note that there may be more than one
        solutions, this function prints one of the
        feasible solutions.*/
+    long startTime;
+    long endTime;
     boolean solveNQ()
     {
+        startTime = System.nanoTime();
         int[][] board = new int[N][N];
         for (int a = 0;a<N;a++){
             for (int b=0;b<N;b++){

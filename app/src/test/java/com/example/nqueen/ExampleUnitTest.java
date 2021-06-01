@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.nqueen;
 
 import org.junit.Test;
 

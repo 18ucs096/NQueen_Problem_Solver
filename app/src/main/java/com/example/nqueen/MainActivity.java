@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.nqueen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.nqueen.R;
 
 public class MainActivity extends AppCompatActivity {
 
